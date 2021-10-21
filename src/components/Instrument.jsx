@@ -5,12 +5,10 @@ import InstrumentAudio from './InstrumentAudio.jsx';
 import getNotesBetween from '../utils/getNotesBetween.js';
 
 const isRegularKey = (event) => !event.ctrlKey && !event.metaKey && !event.shiftKey;
+
 const Instrument = ({
-  instrumentName,
-  startNote,
-  endNote,
-  renderPianoKey,
-  keyboardMap,
+  /* eslint-disable-next-line react/prop-types */
+  instrumentName, startNote, endNote, renderPianoKey, keyboardMap,
 }) => {
   const notes = getNotesBetween(startNote, endNote);
 
@@ -23,8 +21,10 @@ const Instrument = ({
   const handleKeyDown = (e) => {
     if (isRegularKey(e) && !e.repeat) {
       const note = getNoteFromKeyboardKey(e.key);
+      const newNotes = [...state.notesPlaying];
+      newNotes.push(note);
       if (note) {
-        setState({ ...state, notesPlaying: [...state.notesPlaying, note] });
+        setState({ ...state, notesPlaying: [...newNotes] });
       }
     }
   };

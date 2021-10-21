@@ -22,7 +22,7 @@ const AudioPlayer = () => {
         .then((soundFontPlayer) => {
           soundFPlayer = soundFontPlayer;
         })
-        .catch((e) => {
+        .catch(() => {
           soundFPlayer = NullSoundFontPlayer;
         });
     },
