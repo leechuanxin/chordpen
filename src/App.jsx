@@ -1,9 +1,13 @@
 import React from 'react';
+import './styles.scss';
+import Piano from './components/Piano.jsx';
 
-export default function App() {
+function App() {
   return (
-    <div>
-      This is App.jsx
+    <div className="app-container">
+      <Piano />
     </div>
   );
 }
+
+export default App;
